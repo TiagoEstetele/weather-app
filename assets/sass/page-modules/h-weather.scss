@@ -64,6 +64,8 @@
         position: absolute;
         left: -15rem;
         z-index: 999;
+        width: 37rem;
+        height: 33.6rem;
 
         & h1 {
             color: #343434;
@@ -75,13 +77,26 @@
             position: relative;
 
             & span {
-                color: #343434;
-                font-size: 36.952px;
-                font-style: normal;
-                font-weight: 700;   
-                line-height: normal;
-                position: absolute;
-                top: 2rem;
+
+                &:first-of-type {
+                    color: #343434;
+                    text-align: center;
+                    font-size: 7.7rem;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: normal;
+                    position: relative;
+                }
+
+                &:last-of-type {
+                    color: #343434;
+                    font-size: 3rem;
+                    font-style: normal;
+                    font-weight: 700;   
+                    line-height: normal;
+                    position: absolute;
+                    top: 3rem;
+                }
             }
         }
 
@@ -113,7 +128,7 @@
         justify-content: space-evenly;
         margin-top: 1rem;
 
-        & p {
+        & > p {
             color: #343434;
             text-align: center;
             font-size: 2rem;
@@ -137,5 +152,24 @@
         & img {
             height: 33.5rem;
         }
+   }
+
+   &__wind, &__moisture {
+    
+    & p {
+        color: #343434;
+        text-align: center;
+        font-size: 2rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        display: flex;
+        align-items: center;
+
+        & img {
+            width: 1.6rem;
+            margin-right: 1rem;
+        }
+    }
    }
 }
