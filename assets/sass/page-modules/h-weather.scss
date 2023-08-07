@@ -54,6 +54,18 @@
     &__card {
         display: flex;
         position: relative;
+       
+    }
+
+    &__container {
+        
+        &[data-toggle='hidden'] {
+            display: none;
+        }
+
+        &[data-toggle='show'] {
+            display: block;
+        }
     }
 
     &__infos {
@@ -148,9 +160,12 @@
 
    &__figure {
         border-radius: 5.8rem;
+        z-index: 988;
     
         & img {
             height: 33.5rem;
+            border-radius: 5rem;
+            z-index: 988;
         }
    }
 

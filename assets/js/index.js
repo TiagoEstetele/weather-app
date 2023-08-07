@@ -1,7 +1,8 @@
 //API
 const apiKey = "2ca464b00339fa4c0e7a73e2df4706e6";
+const apiKeyUnsplash = "XNngQ8KNuyUueAV4M-djugmDuxrUWIOpxx_8V4b0-g0";
+const addQuery = "City";
 var cityInput = $j('.h-weather__search form input');
-city = "São Paulo"
 
 
 const getWeatherData = async (city) => {
@@ -29,14 +30,34 @@ const showWeatherData = async (city) => {
 
 
     console.log(data);  
-
 }
-
 
 $j('.h-weather__search button').addEventListener('click', (e) => {
     e.preventDefault();
 
     const city = cityInput.value;
+    const container = $j('.h-weather__container');
+
+    console.log(cityInput.value);
+    if(cityInput.value === '') {
+         alert('Digite uma cidade');
+    } else {
+        container.setAttribute('data-toggle', 'show');
+    }
+
+    const apiUnsplashUrl = `https://api.unsplash.com/search/photos?query=${city}&client_id=${apiKeyUnsplash}&collections=${addQuery}`;
+fetch(apiUnsplashUrl)
+  .then(response => response.json())
+  .then(data => {
+    const image = $j('.h-weather__figure > img');
+
+    image.src = data.results[0].urls['regular'];
+    console.log(data);
+
+  })
+  .catch(error => {
+    console.error('Erro ao fazer a requisição:', error);
+  });
 
     showWeatherData(city);
 })
